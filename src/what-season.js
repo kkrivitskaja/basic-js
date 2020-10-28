@@ -7,16 +7,23 @@ module.exports = function getSeason(date) {
     if (date.getMonth !== a.getMonth) {
       throw new Error();
     };
-     
-    let month = date.getMonth()+1;
-    if (month < 3 || month == 12) {
-        return 'winter'
-    } else if (month < 6) {
-        return 'spring'
-    } else if (month < 9) {
-        return 'summer'
-    } else {
-        return 'autumn'
+  
+    
+    let month = date.getMonth() + 1;
+    switch (true) {
+      case (month >= 12 || month < 3):
+        return "winter";
+        break;
+      case (month < 6):
+        return "spring";
+        break;
+      case (month < 9):
+        return "summer";
+        break;
+      case (month < 12):
+        return "autumn";
+        break;
+      
     }
   
 };
